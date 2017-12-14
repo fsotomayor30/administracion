@@ -1,0 +1,16 @@
+com\usuario\empresa\web\administracion\entidades\Matriz.class
+com\usuario\empresa\web\administracion\servicios\UsuarioService.class
+com\usuario\empresa\web\administracion\entidades\Posicion.class
+com\usuario\empresa\web\administracion\controladores\SolicitudController.class
+com\usuario\empresa\web\administracion\entidades\Solicitud.class
+com\usuario\empresa\web\administracion\servicios\OfertaService.class
+com\usuario\empresa\web\administracion\controladores\InicioController.class
+com\usuario\empresa\web\administracion\controladores\OfertaController.class
+com\usuario\empresa\web\administracion\controladores\UsuarioController.class
+com\usuario\empresa\web\administracion\servicios\SolicitudService.class
+com\usuario\empresa\web\administracion\entidades\Oferta.class
+com\usuario\empresa\web\administracion\entidades\Usuario.class
+com\usuario\empresa\web\administracion\servicios\PosicionService.class
+com\usuario\empresa\web\administracion\servicios\ServiceImpl.class
+com\usuario\empresa\web\administracion\controladores\PosicionController.class
+com\usuario\empresa\web\administracion\controladores\ContactarController.class

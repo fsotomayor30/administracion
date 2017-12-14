@@ -1,0 +1,7 @@
+<config>
+	<context-values>
+	</context-values>
+	<macro-library>
+		<entry namespace="contacto" path="src/main/webapp/structures/posiciones/contacto.ftl" project="administracion" type="file"/>
+	</macro-library>
+</config>

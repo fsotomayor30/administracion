@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>Sistema Vitivinicola</title>
+	<link rel="stylesheet" href="index_style.css">
+	<link rel="stylesheet" href="style.css">
+
+	<style type="text/css">
+  .boton_personalizado{
+    text-decoration: none;
+    padding: 10px;
+    color: #ffffff;
+    background-color: #900C3F;
+    border-radius: 6px;
+    border: 1px solid #ffffff;
+  }
+  .boton_personalizado:hover{
+    color: #1883ba;
+    background-color: #ffffff;
+  }
+  .input_personalizado{
+    text-decoration: none;
+    padding: 10px;
+    color: #ffffff;
+    background-color: #900C3F;
+    border-radius: 6px;
+    border: 1px solid #ffffff;
+  }
+</style>
+</head>
+<body background="wine.jpg">
+	<body>
+	
+		<div id="wrap">
+  <div id="regbar">
+    <div id="navthing">
+      <h2><a href="#" id="loginform">Iniciar Sesión</a></h2>
+	  
+    <div class="login">
+      <div class="arrow-up"></div>
+      <div class="formholder">
+        <div class="randompad">
+           
+           <form action="j_spring_security_check" method="post" >
+             <tr>
+			<td>	
+             <label name="user">Usuario</label></td>
+             <td>	
+			 <input type="text" style="width:326.8px;height:25px" name="j_username" required minlength="4" maxlength="10" pattern="[A-Za-z][A-Za-z0-9]*[0-9][A-Za-z0-9]*" title="el usuario debe contener de 4 a 10 caracteres y almenos un número"/>
+             </tr>
+			 </td>
+             <tr>
+             <label name="password">Password</label>
+             <input type="password" name="j_password" required minlength="8" maxlength="16" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" title="la contraseña debe contener de 8 a 16 caracteres y almenos una mayuscula" />
+             <input type="submit" value="Iniciar sesión" />
+			</tr>
+           </form>
+           
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
+</div>
+  <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+
+    <script  src="index.js"></script>
+	
+	</body>
+	
+	<header>
+		<a href="ofertas/listar.xml">
+		<div class="contenedor" id="uno">
+			<img class="icon" src="pictures/icon1.png">
+			<p class="texto">Ofertas</p>
+		</div>
+		</a>
+	
+		<a href="solicitudes/listar.xml">
+		<div class="contenedor" id="dos">
+			<img class="icon" src="pictures/icon2.png">
+			<p class="texto">Publica tu anuncio</p>
+		</div>
+		</a>
+		
+		<a href="posiciones/mostrar.xml">
+		<div class="contenedor" id="tres">
+			<img class="icon" src="pictures/icon7.png">
+			<p class="texto">Estadistica</p>
+		</div>
+		</a>
+		<a href="administrador/solicitudes.xml">
+		<div class="contenedor" id="cuatro">
+			<img class="icon" src="pictures/icon4.png">
+			<p class="texto">Administrador</p>
+		</div>
+		</a>
+		
+		<a href="contactar/contacto.xml">
+		<div class="contenedor" id="cinco">
+			<img class="icon" src="pictures/correo.png">
+			<p class="texto">Contactanos</p>
+		</div>
+		</a>
+	</header>
+	<table  width="90%" >
+<tr>
+<td align="center">
+<a class="boton_personalizado" href="logout.html">Cerrar Sesión</a>
+
+</td>
+</tr>
+</table>
+
+
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</body>
+</html>

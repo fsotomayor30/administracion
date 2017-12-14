@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap namespace="ofertasResult">
+	
+	<!-- resultmaps -->
+	<resultMap id="ofertaResult" class="com.usuario.empresa.web.administracion.entidades.Oferta">
+		
+		<result property="id" 			column="ID" />
+		<result property="titulo" 		column="TITULO" />
+		<result property="autor" 		column="AUTOR" />
+		<result property="direccion" 	column="DIRECCION" />
+		<result property="descripcion" 	column="DESCRIPCION" />
+		<result property="email" 		column="EMAIL" />
+		<result property="telefono" 	column="TELEFONO" />
+		<result property="fecha" 		column="FECHA" />
+		
+	</resultMap>
+
+	<!-- sqls -->
+	<select id="getOfertas" resultMap="ofertaResult">
+		SELECT C.ID, C.TITULO, C.AUTOR, C.DIRECCION, C.DESCRIPCION, C.EMAIL, C.TELEFONO, C.FECHA
+		FROM OFERTAS AS C
+		ORDER BY C.ID;
+	</select>
+	
+	<select id="getOferta" parameterClass="int" resultMap="ofertaResult">
+		SELECT C.ID, C.TITULO, C.AUTOR, C.DIRECCION, C.DESCRIPCION, C.EMAIL, C.TELEFONO, C.FECHA
+		FROM OFERTAS AS C
+		WHERE C.ID=#value#;
+	</select>
+	<select id="getTotalOfertas" resultClass="java.lang.Integer">
+		SELECT COUNT(*)
+		FROM
+		OFERTAS ;
+	</select>
+	
+	<select id="getTotalOfertasPorMes" parameterClass="Integer" resultClass="java.lang.Integer">
+		select COUNT(*)
+		FROM
+		OFERTAS
+		WHERE MONTH(FECHA)=#value#;
+	</select>
+	
+	<insert id="insertOferta" parameterClass="com.usuario.empresa.web.administracion.entidades.Oferta">
+		INSERT OFERTAS (TITULO, AUTOR, DIRECCION, DESCRIPCION, EMAIL, TELEFONO, FECHA)
+		VALUES (#titulo# ,#autor#, #direccion#, #descripcion#, #email#, #telefono#, #fecha#);
+	</insert>
+	
+	<select id="getOfertasAutor" parameterClass="String" resultMap="ofertaResult">
+		SELECT C.ID, C.TITULO, C.AUTOR, C.DIRECCION, C.DESCRIPCION, C.EMAIL, C.TELEFONO, C.FECHA
+		FROM OFERTAS AS C
+		WHERE C.AUTOR=#value#;
+	</select>
+	
+	<select id="getOfertasDireccion" parameterClass="String" resultMap="ofertaResult">
+		SELECT C.ID, C.TITULO, C.AUTOR, C.DIRECCION, C.DESCRIPCION, C.EMAIL, C.TELEFONO, C.FECHA
+		FROM OFERTAS AS C
+		WHERE C.DIRECCION=#value#;
+	</select>
+	
+	<select id="getOfertasTitulo" parameterClass="String" resultMap="ofertaResult">
+		SELECT C.ID, C.TITULO, C.AUTOR, C.DIRECCION, C.DESCRIPCION, C.EMAIL, C.TELEFONO, C.FECHA
+		FROM OFERTAS AS C
+		WHERE C.TITULO=#value#;
+	</select>
+	
+	<select id="getOfertasFechaDesde" parameterClass="String" resultMap="ofertaResult">
+		SELECT C.ID, C.TITULO, C.AUTOR, C.DIRECCION, C.DESCRIPCION, C.EMAIL, C.TELEFONO, C.FECHA
+		FROM OFERTAS AS C
+		WHERE C.FECHA&gt;#value#;
+	</select>
+	<select id="getOfertasFechaHasta" parameterClass="String" resultMap="ofertaResult">
+		SELECT C.ID, C.TITULO, C.AUTOR, C.DIRECCION, C.DESCRIPCION, C.EMAIL, C.TELEFONO, C.FECHA
+		FROM OFERTAS AS C
+		WHERE C.FECHA&lt;#value#;
+	</select>
+	
+	
+</sqlMap>

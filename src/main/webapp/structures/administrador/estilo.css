@@ -1,0 +1,9 @@
+.outlinenone {
+  outline: none;
+  background-color: #dfe;
+  border: 0;
+}
+.redondeadonorelieve {
+  border-radius: 5px;
+  border: 1px solid #39c;
+}

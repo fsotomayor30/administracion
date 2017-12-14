@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap namespace="posicionResult">
+	
+	<!-- resultmaps -->
+	<resultMap id="posicionResult" class="com.usuario.empresa.web.administracion.entidades.Posicion">
+		
+		<result property="id" 			column="ID" />
+		<result property="posicion" 	column="posicion" />
+		
+		
+	</resultMap>
+
+	<!-- sqls -->
+	<select id="getPosiciones" resultMap="posicionResult">
+		SELECT C.ID, C.POSICION
+		FROM POSICIONES AS C
+		ORDER BY C.ID;
+	</select>
+	
+	<select id="getPosicion" parameterClass="int" resultMap="posicionResult">
+		SELECT C.ID
+		FROM SOLICITUDES AS C
+		WHERE C.ID=#value#;
+	</select>
+	<select id="getTotalPosiciones" resultClass="java.lang.Integer">
+		SELECT COUNT(*)
+		FROM
+		POSICIONES ;
+	</select>
+	<insert id="insertPosicion" parameterClass="com.usuario.empresa.web.administracion.entidades.Posicion">
+		INSERT POSICIONES (POSICION)
+		VALUES (#posicion#);
+	</insert>
+	
+
+	
+</sqlMap>

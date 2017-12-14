@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap namespace="solicitudesResult">
+	
+	<!-- resultmaps -->
+	<resultMap id="solicitudResult" class="com.usuario.empresa.web.administracion.entidades.Solicitud">
+		
+
+		<result property="id" 					column="ID" />
+		<result property="id_solicitante" 		column="ID_SOLICITANTE" />
+		<result property="titulo" 				column="TITULO" />
+		<result property="autor" 				column="AUTOR" />
+		<result property="descripcion" 			column="DESCRIPCION" />
+		<result property="email" 				column="EMAIL" />
+		<result property="telefono" 			column="TELEFONO" />
+		<result property="direccion" 			column="DIRECCION" />
+		
+	</resultMap>
+
+	<!-- sqls -->
+	<select id="getSolicitudes" resultMap="solicitudResult">
+		SELECT C.ID, C.ID_SOLICITANTE, C.TITULO, C.AUTOR, C.DESCRIPCION, C.EMAIL, C.TELEFONO, C.DIRECCION
+		FROM SOLICITUDES AS C
+		ORDER BY C.ID;
+	</select>
+	
+	<select id="getSolicitud" parameterClass="int" resultMap="solicitudResult">
+		SELECT C.ID, C.ID_SOLICITANTE, C.TITULO, C.AUTOR, C.DESCRIPCION, C.EMAIL, C.TELEFONO, C.DIRECCION
+		FROM SOLICITUDES AS C
+		WHERE C.ID=#value#;
+	</select>
+	<select id="getTotalSolicitudes" resultClass="java.lang.Integer">
+		SELECT COUNT(*)
+		FROM
+		SOLICITUDES ;
+	</select>
+	<insert id="insertSolicitud" parameterClass="com.usuario.empresa.web.administracion.entidades.Solicitud">
+		INSERT SOLICITUDES (ID_SOLICITANTE, TITULO, AUTOR, DESCRIPCION, EMAIL, TELEFONO, DIRECCION)
+		VALUES (#id_solicitante#, #titulo#, #autor#, #descripcion#, #email#, #telefono#, #direccion#);
+	</insert>
+	<delete id="deleteSolicitud" parameterClass="int">
+		DELETE FROM SOLICITUDES
+		WHERE ID=#value#;
+	</delete>
+	
+</sqlMap>
